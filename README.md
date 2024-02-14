@@ -6,7 +6,7 @@ a patch for the wiishop channel that if you to buy a Wii Game (or game that can 
 
 # Summary:
 
-Say you want to get mario 64 on the wii but you didnt originally buy the game so you cant redownload.
+Say you want to get (for example) mario 64 on the wii but you didnt originally buy the game so you cant redownload.
 Now, what this idea basically saying:
 Is that you buy the game on switch via 3d all stars (ik its no longer available but this is an example)
 And once you have bought it, and legally own it
@@ -20,3 +20,7 @@ Nxdump then extracts the mario 3d all starts file, uses automated versions off m
 It then either applies any free patches, or connects to the open shop channel and installs one of its fanmade n64 emulators
 Then creates a mario 64 wad installed in the menu
 That's the jist of it
+
+# Why does this exist?
+
+Just trying to do whatever I can to keep the wii shop "active", there arent many games on both wii and switch, but it cant hurt to do this.
