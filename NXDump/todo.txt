@@ -1,0 +1,52 @@
+todo:
+
+    title: always retrieve names from unpacked nacps? (e.g. if an update changes the name of a title, like deltarune)
+    title: use dlc index as part of the output dump filename?
+    title: more functions for title lookup? (filters, patches / aoc, etc.)
+    title: more functions for content lookup? (based on id)
+    title: parse the update partition from gamecards (if available) to generate ncmcontentinfo data for all update titles
+
+    usb: change buffer size?
+    usb: change chunk size?
+    usb: improve abi (make it rest-like?)
+    usb: improve cancel mechanism
+
+    others: check todo with grep
+    others: dump verification via nswdb / no-intro
+    others: fatfs browser for emmc partitions
+
+reminder:
+
+list of top level functions designed to alter nca data in order of (possible) usage:
+
+    out of dump loop:
+        * ncaSetDownloadDistributionType (instead of always using it like legacy, offer it as an option)
+
+        * ncaRemoveTitlekeyCrypto (can be used with digital titles + game updates in gamecards)
+
+        * nacpGenerateNcaPatch (Control)
+            * calls romfsGenerateFileEntryPatch
+                * calls ncaGenerateHierarchicalSha256Patch / ncaGenerateHierarchicalIntegrityPatch
+
+        * ncaEncryptHeader (doesn't modify anything per se, but it's used to generate new encrypted header data if needed)
+
+    inside dump loop:
+        * cnmtGenerateNcaPatch (Meta)
+            * calls pfsGenerateEntryPatch
+                * calls ncaGenerateHierarchicalSha256Patch
+            * returns true if cnmt needs no patching
+            * demands an immediate ncaEncryptHeader call
+
+        * ncaIsHeaderDirty (doesn't modify anything per se, but it's used to check if any of the functions above has been used, basically - and by extension, if the functions below need to be used)
+
+        * ncaWriteEncryptedHeaderDataToMemoryBuffer (write encrypted nca header data)
+
+        * cnmtWriteNcaPatch (writes cnmt patch)
+            * calls pfsWriteEntryPatchToMemoryBuffer
+                * calls ncaWriteHierarchicalSha256PatchToMemoryBuffer
+
+        * nacpWriteNcaPatch (writes nacp patch)
+            * calls romfsWriteFileEntryPatchToMemoryBuffer
+                * calls ncaWriteHierarchicalSha256PatchToMemoryBuffer / ncaWriteHierarchicalIntegrityPatchToMemoryBuffer
+
+        * cnmtUpdateContentInfo (used to update content entry info in the raw cnmt copy after dumping each one - ignores the current content if its a meta nca)

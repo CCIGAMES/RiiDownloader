@@ -1,0 +1,111 @@
+name: Build nxdumptool-rewrite binary
+
+on:
+  push:
+    branches: [ rewrite ]
+    paths:
+      - '.github/workflows/rewrite.yml'
+      - 'code_templates/**'
+      - 'include/**'
+      - 'libs/**'
+      - 'romfs/**'
+      - 'source/**'
+      - 'build.sh'
+      - 'Makefile'
+
+  # Allows you to run this workflow manually from the Actions tab.
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: devkitpro/devkita64
+    steps:
+      # Workaround: avoid requesting data from devkitPro servers because they ban most CI/CD scripts.
+      # TODO: Remove the last dkp-pacman invocation if https://github.com/devkitPro/docker/pull/28 gets accepted
+      - name: Update packages
+        run: |
+          sudo -n apt-get update
+          sudo -n apt-get upgrade -y patch autoconf automake tar bzip2 diffutils pkgconf fakeroot git file zstd
+          sudo -n dkp-pacman --noconfirm -U \
+            "https://wii.leseratte10.de/devkitPro/other-stuff/dkp-toolchain-vars-1.0.3-2-any.pkg.tar.zst"
+
+      - uses: actions/checkout@v4
+        with:
+          path: nxdumptool
+          submodules: recursive
+
+      - name: Checkout latest libnx commit
+        uses: actions/checkout@v4
+        with:
+          repository: switchbrew/libnx
+          path: libnx
+          submodules: recursive
+
+      - name: Set workspace permissions
+        run: chmod 777 -R "$GITHUB_WORKSPACE"
+
+      - name: Build and install libnx
+        working-directory: libnx
+        run: |
+          make install -j$(nproc)
+
+      - name: Build libusbhsfs dependencies
+        working-directory: nxdumptool/libs/libusbhsfs
+        run: |
+          make fs-libs
+
+      - name: Build nxdumptool-rewrite PoC binary
+        working-directory: nxdumptool
+        run: |
+          echo "nxdt_commit=$(git rev-parse --short ${{ github.sha }})" >> $GITHUB_ENV
+          ./build.sh --noconfirm
+
+      #- name: Build nxdumptool-rewrite GUI binary
+      #  working-directory: nxdumptool
+      #  run: |
+      #    make -j$(nproc)
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: nxdt_rw_poc-${{ env.nxdt_commit }}.nro
+          path: nxdumptool/code_templates/tmp/nxdt_rw_poc.nro
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: nxdt_rw_poc-${{ env.nxdt_commit }}.elf
+          path: nxdumptool/code_templates/tmp/nxdt_rw_poc.elf
+          if-no-files-found: error
+
+      #- uses: actions/upload-artifact@v3
+      #  with:
+      #    name: nxdumptool-rewrite-${{ env.nxdt_commit }}-WIP_UI.nro
+      #    path: nxdumptool/nxdumptool.nro
+      #    if-no-files-found: error
+
+      #- uses: actions/upload-artifact@v3
+      #  with:
+      #    name: nxdumptool-rewrite-${{ env.nxdt_commit }}-WIP_UI.elf
+      #    path: nxdumptool/nxdumptool.elf
+      #    if-no-files-found: error
+
+      - name: Upload artifact to prerelease
+        uses: ncipollo/release-action@v1
+        with:
+          # Only update attachments on "rewrite-prerelease" tag.
+          prerelease: True
+          tag: "rewrite-prerelease"
+          updateOnlyUnreleased: True
+          # Remove old artifacts and replace with new ones.
+          removeArtifacts: True
+          replacesArtifacts: True
+          # Update preferences.
+          allowUpdates: True
+          omitBody: True
+          omitBodyDuringUpdate: True
+          omitNameDuringUpdate: True
+          artifacts: "nxdumptool/code_templates/tmp/nxdt_rw_poc.*"
+          #artifacts: "nxdumptool/code_templates/tmp/nxdt_rw_poc.*, nxdumptool/nxdumptool.*"
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,22 @@
+.vscode
+build
+host/__pycache__
+host/standalone
+host/nxdt_host*
+host/nxdumptool
+*.elf
+*.nacp
+*.nro
+*.nso
+*.map
+*.pfs0
+*.lst
+*.log
+*.spec
+*.exe
+*.7z
+*.code-workspace
+
+# TODO: remove this after the PoC builds are no longer needed.
+main.cpp
+/code_templates/tmp/*
