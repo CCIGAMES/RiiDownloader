@@ -1,0 +1,8 @@
+Mario64:
+use nxdumptool to explore the romfs of the game (dump gamecard content -> romfs options)
+
+to dump just the sm64 rom specifically, browse the romfs section for the nca with id offset 1—the rom is located at /rom/Stardust_JP/01_UNSMJ3.002.bin, press A to dump it to /switch/nxdumptool/romfs on your sd card. this is the shindou version of the game so it will be japanese.
+
+Xenoblade Chronicles:
+
+this may be harder to do since the switch release probably isnt emulating the wii version and instead is a proper port, we may be able to remedy this using the decomp of the wii version: https://github.com/xbret/xenoblade and when extracting assets, automatically compress the textures and lower the polygon count (maybe using ai)
