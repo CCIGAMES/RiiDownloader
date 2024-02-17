@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C611D353-ABF4-490E-9DF3-DF4E239412E9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FriishProduce</RootNamespace>
+    <AssemblyName>FriishProduce</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlRenderer, Version=1.5.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.Core.1.5.0.5\lib\net45\HtmlRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlRenderer.WinForms, Version=1.5.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.WinForms.1.5.0.6\lib\net45\HtmlRenderer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="MdiTabControl">
+      <HintPath>.\MdiTabControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Hashing, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Hashing.8.0.0\lib\net462\System.IO.Hashing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.Ribbon, Version=2.0.0.0, Culture=neutral, PublicKeyToken=928736e248aa81f9, processorArchitecture=MSIL">
+      <HintPath>..\packages\RibbonWinForms.5.0.1.1\lib\net472\System.Windows.Forms.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BannerPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BannerPreview.Designer.cs">
+      <DependentUpon>BannerPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BannerPreview.resx">
+      <DependentUpon>BannerPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="packages\libWiiSharp\BNS.cs" />
+    <Compile Include="packages\libWiiSharp\Brlan.cs" />
+    <Compile Include="packages\libWiiSharp\Brlyt.cs" />
+    <Compile Include="packages\libWiiSharp\CertificateChain.cs" />
+    <Compile Include="packages\libWiiSharp\CommonKey.cs" />
+    <Compile Include="packages\libWiiSharp\ContentIndices.cs" />
+    <Compile Include="packages\libWiiSharp\HbcTransmitter.cs" />
+    <Compile Include="packages\libWiiSharp\Headers.cs" />
+    <Compile Include="packages\libWiiSharp\HexView.cs" />
+    <Compile Include="packages\libWiiSharp\IosPatcher.cs" />
+    <Compile Include="packages\libWiiSharp\Lz77.cs" />
+    <Compile Include="packages\libWiiSharp\MessageEventArgs.cs" />
+    <Compile Include="packages\libWiiSharp\NusClient.cs" />
+    <Compile Include="packages\libWiiSharp\Shared.cs" />
+    <Compile Include="packages\libWiiSharp\Ticket.cs" />
+    <Compile Include="packages\libWiiSharp\TMD.cs" />
+    <Compile Include="packages\libWiiSharp\TPL.cs" />
+    <Compile Include="packages\libWiiSharp\U8.cs" />
+    <Compile Include="packages\libWiiSharp\WAD.cs" />
+    <Compile Include="packages\libWiiSharp\Wave.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Strings\InjectorForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InjectorForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Strings\MainForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Strings\Options_VC_N64.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Options_VC_N64.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Strings\Options_VC_SEGA.Designer.cs">
+      <DependentUpon>Options_VC_SEGA.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Strings\Options_VC_NES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Options_VC_NES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Strings\SettingsForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettingsForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Strings\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Subforms\ChannelTitles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subforms\ChannelTitles.Designer.cs">
+      <DependentUpon>ChannelTitles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subforms\ContentOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subforms\ContentOptions.Designer.cs">
+      <DependentUpon>ContentOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subforms\Options_VC_SEGA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subforms\Options_VC_SEGA.Designer.cs">
+      <DependentUpon>Options_VC_SEGA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subforms\Options_VC_N64.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subforms\Options_VC_N64.Designer.cs">
+      <DependentUpon>Options_VC_N64.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subforms\Options_VC_NES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subforms\Options_VC_NES.Designer.cs">
+      <DependentUpon>Options_VC_NES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subforms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subforms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_classes\Byte.cs" />
+    <Compile Include="_classes\Consoles.cs" />
+    <Compile Include="_classes\Database.cs" />
+    <Compile Include="_classes\Injectors\WAD.cs" />
+    <Compile Include="_classes\Injectors\WiiVC.cs" />
+    <Compile Include="_classes\Injectors\WiiVC\N64.cs" />
+    <Compile Include="_classes\Injectors\WiiVC\NeoGeo.cs" />
+    <Compile Include="_classes\Injectors\WiiVC\NES.cs" />
+    <Compile Include="_classes\Injectors\WiiVC\SEGA.cs" />
+    <Compile Include="_classes\Injectors\WiiVC\SNES.cs" />
+    <Compile Include="_classes\Process.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_classes\Language.cs" />
+    <Compile Include="_classes\LibRetroDB.cs" />
+    <Compile Include="_classes\Paths.cs" />
+    <Compile Include="_classes\TitleImage.cs" />
+    <Compile Include="_classes\Banner.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings\InjectorForm.resx">
+      <CustomToolNamespace>Strings</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>InjectorForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings\MainForm.resx">
+      <CustomToolNamespace>Strings</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MainForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings\Options_VC_N64.resx">
+      <CustomToolNamespace>Strings</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Options_VC_N64.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings\Options_VC_SEGA.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Options_VC_SEGA.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Strings</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings\Options_VC_NES.resx">
+      <CustomToolNamespace>Strings</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Options_VC_NES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings\SettingsForm.resx">
+      <CustomToolNamespace>Strings</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings\Strings.resx">
+      <CustomToolNamespace>Strings</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subforms\ChannelTitles.resx">
+      <DependentUpon>ChannelTitles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subforms\ContentOptions.resx">
+      <DependentUpon>ContentOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subforms\Options_VC_SEGA.resx">
+      <DependentUpon>Options_VC_SEGA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subforms\Options_VC_N64.resx">
+      <DependentUpon>Options_VC_N64.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subforms\Options_VC_NES.resx">
+      <DependentUpon>Options_VC_NES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InjectorForm.resx">
+      <DependentUpon>InjectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="InjectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InjectorForm.Designer.cs">
+      <DependentUpon>InjectorForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Subforms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="packages\Newtonsoft.Json.13.0.3\.signature.p7s" />
+    <None Include="packages\RibbonWinForms.5.0.1.1\.signature.p7s" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\icons\consoles\nintendo nes.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <None Include="Resources\icons\tick.png" />
+    <None Include="Resources\icons\cross.png" />
+    <None Include="Resources\icons\locale.png" />
+    <None Include="Resources\subforms\screen_smd.png" />
+    <None Include="Resources\savebanner_flash.png" />
+    <None Include="Resources\x.png" />
+    <None Include="Resources\subforms\screen_nes.png" />
+    <None Include="Resources\bg.png" />
+    <Content Include="packages\Newtonsoft.Json.13.0.3\lib\net6.0\Newtonsoft.Json.xml" />
+    <None Include="Resources\flag_eu.png" />
+    <None Include="Resources\flag_eu50.png" />
+    <None Include="Resources\flag_eu60.png" />
+    <None Include="Resources\flag_us.png" />
+    <None Include="Resources\flag_jp.png" />
+    <None Include="Resources\flag_kr.png" />
+    <None Include="Resources\icons\arrow-circle-double.png" />
+    <None Include="Resources\icons\box-label.png" />
+    <None Include="Resources\icons\box-label_large.png" />
+    <None Include="Resources\icons\book.png" />
+    <None Include="Resources\icons\book_large.png" />
+    <None Include="Resources\icons\arrow-curve.png" />
+    <None Include="Resources\icons\arrow-curve_large.png" />
+    <None Include="Resources\icons\logo.png" />
+    <None Include="Resources\icons\information.png" />
+    <None Include="Resources\icons\retroarch.png" />
+    <None Include="Resources\icons\door_open.png" />
+    <None Include="Resources\icons\information_large.png" />
+    <None Include="Resources\icons\document.png" />
+    <None Include="Resources\icons\document_large.png" />
+    <None Include="Resources\icons\disc-blue.png" />
+    <None Include="Resources\icons\disc-blue_large.png" />
+    <None Include="Resources\icons\image-sunset_large.png" />
+    <None Include="Resources\icons\image-sunset.png" />
+    <None Include="Resources\icons\gear.png" />
+    <None Include="Resources\icons\gear_large.png" />
+    <None Include="Resources\icons\image-share.png" />
+    <None Include="Resources\icons\lakitu-smw2.png" />
+    <None Include="Resources\icons\retroarch_large.png" />
+    <None Include="Resources\saveicon_placeholder_s.png" />
+    <None Include="Resources\saveicon_placeholder.png" />
+    <None Include="Resources\saveicon_flash.png" />
+    <None Include="Resources\icons\consoles\sega genesis.ico" />
+    <None Include="Resources\icons\consoles\snk neo geo aes.ico" />
+    <None Include="Resources\icons\consoles\sega master system.ico" />
+    <None Include="Resources\icons\consoles\sega genesis %28model 2%29.ico" />
+    <None Include="Resources\icons\consoles\nintendo nintendo64.ico" />
+    <None Include="Resources\icons\consoles\nec turbografx-16.ico" />
+    <None Include="Resources\icons\consoles\nintendo super nes.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="icon.ico">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="VistaMenu">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Strings\es\" />
+    <Folder Include="Strings\fr\" />
+    <Folder Include="Strings\tr\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(ProjectDir)Strings\"
+for /R "%25cd%25" %25%25f in (.) do (call :copy %25%25f %25cd%25)
+goto :eof
+
+:copy
+if NOT %25~n1 == %25~n2 rmdir /s /q "$(TargetDir)strings\%25~n1\"
+if NOT %25~n1 == %25~n2 mkdir "$(TargetDir)strings\%25~n1\"
+if NOT %25~n1 == %25~n2 robocopy %251 $(TargetDir)strings\%25~n1\ 1&gt;nul
+exit /b
+
+:eof</PostBuildEvent>
+  </PropertyGroup>
+</Project>

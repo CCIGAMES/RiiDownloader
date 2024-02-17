@@ -1,0 +1,11 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+legacy/
+/legacy/
+/packages
+/FriishProduce/langs/_source.json
+/FriishProduce/langs/crowdin
+/FriishProduce/Data
