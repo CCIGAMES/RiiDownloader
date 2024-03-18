@@ -1,26 +1,11 @@
-# HELP WANTED
-this needs some help to get going, feel free to contribute
+# HELP WANTED!
+This needs some help to keep going, feel free to contribute if you want to!
 
 # RiiDownloader
-a patch for the wiishop channel that if you to buy a Wii Game (or game that can run on a Wii like the VC games) on the nintendo switch, it can then remotely/locally extract the data from your switch's files and send to your wii to be repackaged as a WAD (effectively reviving the channel for certain games)
+This is a patch for the Wii Shop Channel that transfers Wii games downloaded on the Switch to your Wii.
 
-# Summary:
-
+# How does this work?
 Say you want to get (for example) mario 64 on the wii but you didnt originally buy the game so you cant redownload.
-Now, what this idea basically saying:
-Is that you buy the game on switch via 3d all stars (ik its no longer available but this is an example)
-And once you have bought it, and legally own it
-You go onto your wii and open this "patched" wii shop channel
-You would be able to link ur nintendo account
-Where it then looks at what games you own (like Playnite)
-And sees if any were also on wii
-Then it will take you to the redownload game page on the wii shop
-It then finds the switch on your network and uses nxdump remotely
-Nxdump then extracts the mario 3d all starts file, uses automated versions off modding tools to rip the mario 64 rom from it
-It then either applies any free patches, or connects to the open shop channel and installs one of its fanmade n64 emulators
-Then creates a mario 64 wad installed in the menu
-That's the jist of it
+Now is where my idea comes in.
+If you buy the game on switch (for example, Super Mario 3D All Stars) you go onto your wii and open this "patched" Wii Shop Channel where you would be able to link your Nintendo Account. The shop then looks at what games you own (like Playnite) and sees if any of the games you own were also on the Wii: then it takes you to the redownload game page on the Wii Shop Channel, it then finds the Switch on your network, uses nxdump remotely that extracts the game file, uses automated versions of modding tools to rip the game rom from it, then either applies any free patches or connects to the Open Shop Channel and installs one of its emulator and installs a forwarder on the HOME Menu. I know this is complicated, but it's worth a try!
 
-# Why does this exist?
-
-Just trying to do whatever I can to keep the wii shop "active", there arent many games on both wii and switch, but it cant hurt to do this.
